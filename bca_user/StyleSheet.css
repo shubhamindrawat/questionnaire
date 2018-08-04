@@ -1,0 +1,45 @@
+﻿        @import url(http://weloveiconfonts.com/api/?family=brandico);
+
+/* brandico */
+[class*="brandico-"]:before {
+  font-family: 'brandico', sans-serif;
+}
+
+ul.social-buttons {
+  text-align: center;
+  margin-bottom: -10px;
+}
+
+ul.social-buttons li {
+  display: inline-block;
+}
+
+ul.social-buttons li a {
+  width: 30px;
+  height: 30px;
+  display: block;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 30px;
+  color: white;
+}
+
+ul.social-buttons li a.brandico-blue {
+  background-color: #4099FF;
+  margin-right:5px;
+}
+
+/*Demo 2*/
+
+ul li a {
+  transition: transform 0.5s ease-in-out;
+}
+
+ul li:hover a {
+  transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+}
+.hel
+{
+  font-size:x-large;
+}

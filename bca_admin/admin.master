@@ -1,0 +1,256 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="Admin_admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript">
+        function preventBack()
+        {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onload = function () {
+            null;
+        };
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet" />
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
+    <!-- DataTable -->
+    <%--    <link href="../assets/plugins/DataTable/datatables.min.css" rel="stylesheet" />
+    <%--<link href="../assets/plugins/DataTable/DataTables-1.10.13/css/dataTables.bootstrap.css" rel="stylesheet" />--%>
+    <%--<link href="../assets/plugins/DataTable/Responsive-2.1.1/css/responsive.bootstrap.css" rel="stylesheet" />
+    --%>
+
+    <link href="../assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="Shortcut Icon" type="image/png" href="logo.png" />
+    <!-- bootstrap-progressbar -->
+    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
+    <!-- JQVMap -->
+    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet" />
+
+
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col" style="position: fixed">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <asp:HyperLink runat="server" NavigateUrl="~/bca_admin/Default.aspx" class="site_title"><i class="fa fa-paw"></i> <span>questionnare.com</span></asp:HyperLink>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <asp:Image runat="server" ImageUrl="" alt="..." class="img-circle profile_img" ID="img_admin" />
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <h2>
+                                <asp:Label ID="lbl_menu_user" runat="server">Admin</asp:Label>
+                            </h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                 <li>
+                                    <asp:HyperLink runat="server" NavigateUrl="~/bca_admin/Default.aspx"><i class="fa fa fa-home"></i> Home </asp:HyperLink>
+
+                                 </li>
+                              
+                                <li>
+                                    <asp:HyperLink runat="server" NavigateUrl="~/bca_admin/Profile.aspx"><i class="fa fa fa-user"></i> Manage Profile </asp:HyperLink>
+
+                                </li>
+                                <li>
+                                    <asp:HyperLink runat="server"><i class="fa fa-book"></i> Manage Course <span class="fa fa-chevron-down"></span></asp:HyperLink>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            <asp:HyperLink runat="server" NavigateUrl="~/bca_admin/Subject.aspx">Add Subjects</asp:HyperLink></li>
+                                        <li>
+                                            <asp:HyperLink runat="server" NavigateUrl="~/bca_admin/Syllabus.aspx">Add Syllabus Units</asp:HyperLink></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <asp:HyperLink runat="server" NavigateUrl="~/bca_admin/Faculty.aspx"><i class="fa fa-id-badge"></i> Manage Faculty </asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink runat="server" NavigateUrl="~/bca_admin/Student.aspx"><i class="fa fa-mortar-board"></i> View Students </asp:HyperLink></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <asp:HyperLink runat="server" data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </asp:HyperLink>
+                        <asp:HyperLink runat="server" data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </asp:HyperLink>
+                        <asp:HyperLink runat="server" data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </asp:HyperLink>
+                        <asp:HyperLink runat="server" data-toggle="tooltip" data-placement="top" title="Logout" href="../logout.aspx">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </asp:HyperLink>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <asp:Image ImageUrl="../production/images/1.jpg" runat="server" ID="profile_picture" />Admin
+                                   
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="changepassword.aspx">Profile</a></li>
+                                    <li><a href="../logout.aspx"><i class="fa fa-sign-out pull-right"></i>Log Out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- /page content -->
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="../vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="../vendors/Flot/jquery.flot.js"></script>
+    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- DataTable plugins -->
+
+
+    <script src="../assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+    <script src="../assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+    <script src="../assets/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../assets/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js"></script>
+    <script src="../assets/plugins/DataTables/extensions/Buttons/js/buttons.flash.min.js"></script>
+    <script src="../assets/plugins/DataTables/extensions/Buttons/js/jszip.min.js"></script>
+    <script src="../assets/plugins/DataTables/extensions/Buttons/js/pdfmake.min.js"></script>
+    <script src="../assets/plugins/DataTables/extensions/Buttons/js/vfs_fonts.min.js"></script>
+    <script src="../assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js"></script>
+    <script src="../assets/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js"></script>
+    <script src="../assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../assets/plugins/Datatable/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+
+
+
+
+    <!-- Flot plugins -->
+    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="../vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($("#dataTable").length) {
+                $("#dataTable").DataTable({
+                    pageing: true,
+                    "paging": true,
+                    dom: "Bfrtip",
+                    buttons: [{
+                        extend: "copy",
+                        className: "btn-sm"
+                    }, {
+                        extend: "csv",
+                        className: "btn-sm"
+                    }, {
+                        extend: "excel",
+                        className: "btn-sm"
+                    }, {
+                        extend: "pdf",
+                        className: "btn-sm"
+                    }, {
+                        extend: "print",
+                        className: "btn-sm"
+                    }],
+                    responsive: true
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
